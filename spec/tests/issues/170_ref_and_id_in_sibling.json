@@ -1,38 +1,21 @@
 [
   {
     "description": "sibling property has id (#170)",
-    "schemas": [
-      {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "$id": "http://example.com/base_object_1",
-        "type": "object",
-        "properties": {
-          "title": {
-            "$id": "http://example.com/title",
-            "type": "string"
-          },
-          "file": {"$ref": "#/definitions/file-entry"}
+    "schema": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "id": "http://example.com/base_object",
+      "type": "object",
+      "properties": {
+        "title": {
+          "id": "http://example.com/title",
+          "type": "string"
         },
-        "definitions": {
-          "file-entry": {"type": "string"}
-        }
+        "file": { "$ref": "#/definitions/file-entry" }
       },
-      {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "$id": "http://example.com/base_object_2",
-        "type": "object",
-        "properties": {
-          "title": {
-            "$id": "http://example.com/title",
-            "type": "string"
-          },
-          "file": {"$ref": "#/definitions/file-entry"}
-        },
-        "definitions": {
-          "file-entry": {"type": "string"}
-        }
+      "definitions": {
+        "file-entry": { "type": "string" }
       }
-    ],
+    },
     "tests": [
       {
         "description": "valid object",
@@ -54,83 +37,50 @@
   },
   {
     "description": "sibling item has id",
-    "schemas": [
-      {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "$id": "http://example.com/base_array_1",
-        "type": "array",
-        "items": [
-          {
-            "$id": "http://example.com/0",
-            "type": "string"
-          },
-          {"$ref": "#/definitions/file-entry"}
-        ],
-        "definitions": {
-          "file-entry": {"type": "string"}
-        }
-      },
-      {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "$id": "http://example.com/base_array_2",
-        "type": "array",
-        "items": [
-          {
-            "$id": "http://example.com/0",
-            "type": "string"
-          },
-          {"$ref": "#/definitions/file-entry"}
-        ],
-        "definitions": {
-          "file-entry": {"type": "string"}
-        }
+    "schema": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "id": "http://example.com/base_array",
+      "type": "array",
+      "items": [
+        {
+          "id": "http://example.com/0",
+          "type": "string"
+        },
+        { "$ref": "#/definitions/file-entry" }
+      ],
+      "definitions": {
+        "file-entry": { "type": "string" }
       }
-    ],
+    },
     "tests": [
       {
         "description": "valid array",
-        "data": ["foo", "bar"],
+        "data": [ "foo", "bar" ],
         "valid": true
       },
       {
         "description": "invalid array",
-        "data": ["foo", 2],
+        "data": [ "foo", 2 ],
         "valid": false
       }
     ]
   },
   {
     "description": "sibling schema in anyOf has id",
-    "schemas": [
-      {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "$id": "http://example.com/base_anyof_1",
-        "anyOf": [
-          {
-            "$id": "http://example.com/0",
-            "type": "number"
-          },
-          {"$ref": "#/definitions/def"}
-        ],
-        "definitions": {
-          "def": {"type": "string"}
-        }
-      },
-      {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "$id": "http://example.com/base_anyof_2",
-        "anyOf": [
-          {
-            "$id": "http://example.com/0",
-            "type": "number"
-          },
-          {"$ref": "#/definitions/def"}
-        ],
-        "definitions": {
-          "def": {"type": "string"}
-        }
+    "schema": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "id": "http://example.com/base_anyof",
+      "anyOf": [
+        {
+          "id": "http://example.com/0",
+          "type": "number"
+        },
+        { "$ref": "#/definitions/def" }
+      ],
+      "definitions": {
+        "def": { "type": "string" }
       }
-    ],
+    },
     "tests": [
       {
         "description": "valid string",
@@ -151,36 +101,20 @@
   },
   {
     "description": "sibling schema in oneOf has id",
-    "schemas": [
-      {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "$id": "http://example.com/base_oneof_1",
-        "oneOf": [
-          {
-            "$id": "http://example.com/0",
-            "type": "number"
-          },
-          {"$ref": "#/definitions/def"}
-        ],
-        "definitions": {
-          "def": {"type": "string"}
-        }
-      },
-      {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "$id": "http://example.com/base_oneof_2",
-        "oneOf": [
-          {
-            "$id": "http://example.com/0",
-            "type": "number"
-          },
-          {"$ref": "#/definitions/def"}
-        ],
-        "definitions": {
-          "def": {"type": "string"}
-        }
+    "schema": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "id": "http://example.com/base_oneof",
+      "oneOf": [
+        {
+          "id": "http://example.com/0",
+          "type": "number"
+        },
+        { "$ref": "#/definitions/def" }
+      ],
+      "definitions": {
+        "def": { "type": "string" }
       }
-    ],
+    },
     "tests": [
       {
         "description": "valid string",
@@ -201,38 +135,21 @@
   },
   {
     "description": "sibling schema in allOf has id",
-    "schemas": [
-      {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "$id": "http://example.com/base_allof_1",
-        "allOf": [
-          {
-            "$id": "http://example.com/0",
-            "type": "string",
-            "maxLength": 3
-          },
-          {"$ref": "#/definitions/def"}
-        ],
-        "definitions": {
-          "def": {"type": "string"}
-        }
-      },
-      {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "$id": "http://example.com/base_allof_2",
-        "allOf": [
-          {
-            "$id": "http://example.com/0",
-            "type": "string",
-            "maxLength": 3
-          },
-          {"$ref": "#/definitions/def"}
-        ],
-        "definitions": {
-          "def": {"type": "string"}
-        }
+    "schema": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "id": "http://example.com/base_allof",
+      "allOf": [
+        {
+          "id": "http://example.com/0",
+          "type": "string",
+          "maxLength": 3
+        },
+        { "$ref": "#/definitions/def" }
+      ],
+      "definitions": {
+        "def": { "type": "string" }
       }
-    ],
+    },
     "tests": [
       {
         "description": "valid string",
@@ -248,52 +165,35 @@
   },
   {
     "description": "sibling schema in dependencies has id",
-    "schemas": [
-      {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "$id": "http://example.com/base_dependencies_1",
-        "type": "object",
-        "dependencies": {
-          "foo": {
-            "$id": "http://example.com/foo",
-            "required": ["bar"]
-          },
-          "bar": {"$ref": "#/definitions/def"}
+    "schema": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "id": "http://example.com/base_dependencies",
+      "type": "object",
+      "dependencies": {
+        "foo": {
+          "id": "http://example.com/foo",
+          "required": [ "bar" ]
         },
-        "definitions": {
-          "def": {"required": ["baz"]}
-        }
+        "bar": { "$ref": "#/definitions/def" }
       },
-      {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "$id": "http://example.com/base_dependencies_2",
-        "type": "object",
-        "dependencies": {
-          "foo": {
-            "$id": "http://example.com/foo",
-            "required": ["bar"]
-          },
-          "bar": {"$ref": "#/definitions/def"}
-        },
-        "definitions": {
-          "def": {"required": ["baz"]}
-        }
+      "definitions": {
+        "def": { "required": [ "baz" ] }
       }
-    ],
+    },
     "tests": [
       {
         "description": "valid object",
-        "data": {"foo": 1, "bar": 2, "baz": 3},
+        "data": { "foo": 1, "bar": 2, "baz": 3 },
         "valid": true
       },
       {
         "description": "invalid object 2",
-        "data": {"foo": 1},
+        "data": { "foo": 1 },
         "valid": false
       },
       {
         "description": "invalid object 2",
-        "data": {"foo": 1, "bar": 2},
+        "data": { "foo": 1, "bar": 2 },
         "valid": false
       }
     ]

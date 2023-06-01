@@ -1,50 +1,33 @@
 [
   {
     "description": "Recursive reference (#27)",
-    "schemas": [
-      {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "$id": "testrec_1",
-        "type": "object",
-        "properties": {
-          "layout": {
-            "$id": "layout",
-            "type": "object",
-            "properties": {
-              "layout": {"type": "string"},
-              "panels": {
-                "type": "array",
-                "items": {
-                  "anyOf": [{"type": "string"}, {"$ref": "layout"}]
-                }
+    "schema": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "id": "testrec",
+      "type": "object",
+      "properties": {
+        "layout": {
+          "id": "layout",
+          "type": "object",
+          "properties": {
+            "layout": { "type": "string" },
+            "panels": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  { "type": "string" },
+                  { "$ref": "layout" }
+                ]
               }
-            },
-            "required": ["layout", "panels"]
-          }
-        }
-      },
-      {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "$id": "testrec_2",
-        "type": "object",
-        "properties": {
-          "layout": {
-            "$id": "layout",
-            "type": "object",
-            "properties": {
-              "layout": {"type": "string"},
-              "panels": {
-                "type": "array",
-                "items": {
-                  "anyOf": [{"type": "string"}, {"$ref": "layout"}]
-                }
-              }
-            },
-            "required": ["layout", "panels"]
-          }
+            }
+          },
+          "required": [
+            "layout",
+            "panels"
+          ]
         }
       }
-    ],
+    },
     "tests": [
       {
         "description": "empty object is valid",
@@ -64,7 +47,9 @@
                   "panel2",
                   {
                     "layout": "test3",
-                    "panels": ["panel3"]
+                    "panels": [
+                      "panel3"
+                    ]
                   }
                 ]
               }
@@ -86,7 +71,9 @@
                   "panel2",
                   {
                     "layout": "test3",
-                    "panels": [3]
+                    "panels": [
+                      3
+                    ]
                   }
                 ]
               }

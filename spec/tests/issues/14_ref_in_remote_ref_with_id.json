@@ -2,9 +2,9 @@
   {
     "description": "ref in remote ref with ids",
     "schema": {
-      "$id": "http://localhost:1234/issue14a.json",
+      "id": "http://localhost:1234/issue14a.json",
       "type": "array",
-      "items": {"$ref": "foo.json"}
+      "items": { "$ref": "foo.json" }
     },
     "tests": [
       {
@@ -30,9 +30,9 @@
   {
     "description": "remote ref in definitions in remote ref with ids (#14)",
     "schema": {
-      "$id": "http://localhost:1234/issue14b.json",
+      "id": "http://localhost:1234/issue14b.json",
       "type": "array",
-      "items": {"$ref": "buu.json#/definitions/buu"}
+      "items": { "$ref": "buu.json#/definitions/buu" }
     },
     "tests": [
       {

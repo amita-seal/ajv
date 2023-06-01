@@ -1,58 +1,35 @@
 [
   {
     "description": "IDs in refs without root id (#1)",
-    "schemas": [
-      {
-        "definitions": {
-          "int": {
-            "$id": "#int",
-            "type": "integer"
-          }
-        },
-        "$ref": "#int"
+    "schema": {
+      "definitions": {
+        "int": {
+          "id": "#int",
+          "type": "integer"
+        }
       },
-      {
-        "definitions": {
-          "int": {
-            "$id": "#int",
-            "type": "integer"
-          }
-        },
-        "$ref": "#int"
-      }
-    ],
+      "$ref": "#int"
+    },
     "tests": [
-      {"description": "valid", "data": 1, "valid": true},
-      {"description": "invalid", "data": "foo", "valid": false}
+      { "description": "valid", "data": 1, "valid": true },
+      { "description": "invalid", "data": "foo", "valid": false }
     ]
   },
   {
     "description": "IDs in refs with root id",
-    "schemas": [
-      {
-        "$id": "http://example.com/int_1.json",
-        "definitions": {
-          "int": {
-            "$id": "#int",
-            "type": "integer"
-          }
-        },
-        "$ref": "#int"
+    "schema": {
+      "id": "http://example.com/int.json",
+      "definitions": {
+        "int": {
+          "id": "#int",
+          "type": "integer"
+        }
       },
-      {
-        "$id": "http://example.com/int_2.json",
-        "definitions": {
-          "int": {
-            "$id": "#int",
-            "type": "integer"
-          }
-        },
-        "$ref": "#int"
-      }
-    ],
+      "$ref": "#int"
+    },
     "tests": [
-      {"description": "valid", "data": 1, "valid": true},
-      {"description": "invalid", "data": "foo", "valid": false}
+      { "description": "valid", "data": 1, "valid": true },
+      { "description": "invalid", "data": "foo", "valid": false }
     ]
   },
   {
@@ -66,8 +43,8 @@
       "$ref": "#/definitions/int"
     },
     "tests": [
-      {"description": "valid", "data": 1, "valid": true},
-      {"description": "invalid", "data": "foo", "valid": false}
+      { "description": "valid", "data": 1, "valid": true },
+      { "description": "invalid", "data": "foo", "valid": false }
     ]
   }
 ]

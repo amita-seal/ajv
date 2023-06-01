@@ -1,10 +1,10 @@
 {
-  "$id": "http://localhost:1234/buu.json",
+  "id": "http://localhost:1234/buu.json",
   "definitions": {
     "buu": {
       "type": "object",
       "properties": {
-        "bar": {"$ref": "bar.json"}
+        "bar": { "$ref": "bar.json" }
       }
     }
   }

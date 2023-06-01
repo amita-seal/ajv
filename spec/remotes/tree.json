@@ -1,12 +1,12 @@
 {
-  "$id": "http://localhost:1234/tree.json",
+  "id": "http://localhost:1234/tree.json",
   "description": "tree of nodes",
   "type": "object",
   "properties": {
-    "meta": {"type": "string"},
+    "meta": { "type": "string" },
     "nodes": {
       "type": "array",
-      "items": {"$ref": "node.json"}
+      "items": { "$ref": "node.json"}
     }
   },
   "required": ["meta", "nodes"]

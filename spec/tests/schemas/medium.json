@@ -5,13 +5,22 @@
       "description": "A moderately complex schema with some nesting and value constraints",
       "type": "object",
       "additionalProperties": false,
-      "required": ["api_server", "transport", "storage", "chain"],
+      "required": [
+        "api_server",
+        "transport",
+        "storage",
+        "chain"
+      ],
       "properties": {
         "api_server": {
           "description": "Settings for the HTTP API server",
           "type": "object",
           "additionalProperties": false,
-          "required": ["url", "host", "port"],
+          "required": [
+            "url",
+            "host",
+            "port"
+          ],
           "properties": {
             "url": {
               "type": "string",
@@ -29,7 +38,9 @@
         "transport": {
           "description": "Settings for the Redis tranport",
           "additionalProperties": false,
-          "required": ["server"],
+          "required": [
+            "server"
+          ],
           "properties": {
             "server": {
               "type": "string"
@@ -49,7 +60,11 @@
         },
         "storage": {
           "description": "Settings for the PostgreSQL storage",
-          "required": ["server", "database", "user"],
+          "required": [
+            "server",
+            "database",
+            "user"
+          ],
           "properties": {
             "server": {
               "type": "string"
@@ -67,7 +82,10 @@
         },
         "chain": {
           "description": "Settings for the Chain.com client",
-          "required": ["api_key_id", "api_key_secret"],
+          "required": [
+            "api_key_id",
+            "api_key_secret"
+          ],
           "properties": {
             "api_key_id": {
               "type": "string"
